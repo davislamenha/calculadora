@@ -13,27 +13,27 @@
 }
 .calc button {
   padding: 10px;
-
+  background: var(--c02);
   border: 1px solid rgba(0, 0, 0, 0.1);
   font: 400 50px/1.6 "arial, sans-serif";
-  color: #333;
+  color: var(--c01);
   opacity: 0.8;
   transition: 0.3s;
 }
 .calc button:hover {
   opacity: 1;
 
-  border: 1px solid #333;
+  border: 1px solid var(--c01);
 }
 .calc .display {
   display: flex;
   align-items: center;
   justify-content: end;
 
-  color: #fcfcfc;
+  color: var(--c01);
   font: 600 50px/3 "arial, sans-serif";
   grid-column: 1/-1;
-  background: #333;
+  background: var(--c02);
   height: 60px;
   padding: 20px;
   border-radius: 5px 5px 0 0;
