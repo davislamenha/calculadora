@@ -1,12 +1,11 @@
 .calc-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 20px;
 }
 .calc {
   display: grid;
-
-  grid-template-columns: repeat(4, minmax(100px, 150px));
+  grid-template-columns: repeat(4, minmax(75px, 150px));
 }
 .calc button:nth-child(16) {
   border-radius: 0 0 0 5px;
