@@ -2,12 +2,27 @@ export default class Calculadora {
   constructor(calculadora, display) {
     this.calculadora = [...document.querySelector(calculadora).children];
     this.display = document.querySelector(display);
+    this.opOn = "operatorOn";
   }
 
   onClick(event) {
-    !event.target.dataset.operador
-      ? this.isNumber(event)
-      : this.isOperator(event);
+    const displayTextWidth = ([...this.display.innerText].length + 1) * 27;
+    const displayWidthLimit = this.display.offsetWidth - 10;
+
+    if (
+      !event.target.dataset.operador &&
+      displayTextWidth < displayWidthLimit
+    ) {
+      this.isNumber(event);
+      this.display.classList.remove(this.opOn);
+    } else if (
+      !this.display.classList.contains(this.opOn) &&
+      displayTextWidth < displayWidthLimit
+    ) {
+      this.isOperator(event);
+    } else if (event.target.dataset.operador === "limpar") {
+      this.display.innerText = 0;
+    }
   }
 
   isNumber(event) {
@@ -23,21 +38,27 @@ export default class Calculadora {
   isOperator(event) {
     const operador = event.target.dataset.operador;
     const sinal = event.target.innerText;
+
     switch (operador) {
       case "adicao":
         this.display.innerText += sinal;
+        this.display.classList.add(this.opOn);
         break;
       case "subtracao":
         this.display.innerText += sinal;
+        this.display.classList.add(this.opOn);
         break;
       case "multiplicacao":
         this.display.innerText += sinal;
+        this.display.classList.add(this.opOn);
         break;
       case "divisao":
         this.display.innerText += sinal;
+        this.display.classList.add(this.opOn);
         break;
       case "decimal":
         this.display.innerText += sinal;
+        this.display.classList.add(this.opOn);
         break;
       case "limpar":
         this.display.innerText = 0;
